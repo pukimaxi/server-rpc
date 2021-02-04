@@ -13,7 +13,7 @@ server.addMethod("echo", ({ text }) => text);
 
 const app = express();
 app.use(bodyParser.json());
-
+app.get('*', (req,res)=>{res.send('connect')})
 app.post("/json-rpc", (req, res) => {
   const jsonRPCRequest = req.body;
   // server.receive takes a JSON-RPC request and returns a promise of a JSON-RPC response.
@@ -29,4 +29,4 @@ app.post("/json-rpc", (req, res) => {
   });
 });
 
-app.listen(80);
+app.listen(3000);
